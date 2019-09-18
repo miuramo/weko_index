@@ -11,14 +11,13 @@ WEKO_INDEX
 
 <img src="https://github.com/miuramo/weko_index/blob/master/wekoindex_usage01.png" width="40%">
 
-### (3) make
+### (3) $ make
 
-### (4) index.html を生成し、PDFファイルも同一フォルダに展開します。
-
-zip ファイルが不要でしたら、削除してください。
-
+- index.html を生成し、PDFファイルも同一フォルダに展開します。
+- zip ファイルが不要でしたら、削除してください。
 
 ## 必要なもの
 
 - Python3
 - unzip
+- make

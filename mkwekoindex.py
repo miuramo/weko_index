@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import xml.etree.ElementTree as ET
+import html
 import sys
 
 class paperInfo:
@@ -26,14 +27,19 @@ class paperInfo:
 
     def output(self):
         print('<div class="paper">')
-        print('<a target="_blank" href="'+self.filen+'">'+self.title+'</a> ')
+        print('<a target="_blank" href="'+self.filen+'">'+html.escape(self.title)+'</a> ')
         print(' <span class="pages"> pp. ' + self.pages + '</span><br>')
+        
         for i in range( len(self.authors) ):
             print('<span class="author">', end="")
             print(self.authors[i]+" ", end="")
-            print("（"+self.affils[i]+"）</span> ")
+            try:
+                print("（"+self.affils[i]+"）")
+            except:
+                None
+            print("</span> ")
         
-        print('<div class="abst">'+self.abst+'</div>')
+        print('<div class="abst">'+html.escape(self.abst)+'</div>')
         print('</div>')
         print('')
 

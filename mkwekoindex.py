@@ -62,7 +62,10 @@ for child in root:
     if (child.tag == "repository_file"):
         pinfo.setFile(child.attrib['file_name'])
     if (child.tag == "repository_personal_name"):
-        pinfo.addAuthor(child.attrib['family'] + " " + child.attrib['name'])
+        if (typestr == "著者名"):
+            pinfo.addAuthor(child.attrib['family'] + " " + child.attrib['name'])
+        if (typestr == "著者名(英)"):
+            None
 # 著者所属モードと、論文抄録モードを、きりかえる
     if (child.tag == "repository_item_attr_type"):
         typestr = child.attrib['attribute_name'] 
@@ -72,6 +75,8 @@ for child in root:
             pinfo.addAffil(child.attrib['attribute_value'])
         elif (typestr == "論文抄録"):
             pinfo.setAbst(child.attrib['attribute_value'])
+        elif (typestr == "著者所属(英)"):
+            None
             
     if (child.tag == "repository_biblio_info"):
         pinfo.setPages(child.attrib['start_page']+" - "+child.attrib['end_page'])

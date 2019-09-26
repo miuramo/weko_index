@@ -38,8 +38,9 @@ class paperInfo:
             except:
                 None
             print("</span> ")
-        
-        print('<div class="abst">'+html.escape(self.abst)+'</div>')
+        if ( hasattr(self, "abst") ):
+            print('<div class="abst">'+html.escape(self.abst)+'</div>')
+            
         print('</div>')
         print('')
 

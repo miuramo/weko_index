@@ -13,6 +13,9 @@
 
 all: index.html pdf clean
 
+xml2html: 
+	python3 mkwekoindex.py import.xml > index.html
+
 index.html: tmp2.xml
 	python3 mkwekoindex.py tmp2.xml > index.html
 
